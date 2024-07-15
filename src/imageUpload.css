@@ -1,0 +1,43 @@
+.imageUpload {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.imageUpload_progress {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 17px;
+}
+
+.imageUpload input[type="text"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.imageUpload input[type="file"] {
+    margin-bottom: 20px;
+}
+
+.imageUpload button {
+    padding: 10px 20px;
+    background-color: #0095f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.imageUpload button:hover {
+    background-color: #007bb5;
+}
