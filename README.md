@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# WhisperPic
+WhisperPic is a social media application where users can upload, like, comment, and delete posts. The app is built using React, Firebase for backend services.
+![whisperpic](https://github.com/user-attachments/assets/d46fdd3e-cf64-4846-a370-f26ae7097a42)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
 
-## Available Scripts
+- User authentication (Sign Up and Sign In)
+- Upload images with captions
+- Like posts
+- Comment on posts
+- Delete own posts
+- Real-time updates with Firebase Firestore
 
-In the project directory, you can run:
+## Installation
 
-### `npm start`
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/whisperpic.git
+   cd whisperpic
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Set up Firebase**:
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+   - Enable Firestore and Authentication (Email/Password).
+   - Copy the Firebase config object from your Firebase project settings.
 
-### `npm test`
+4. **Configure Firebase**:
+   - Create a `FireBase.js` file in the `src` directory.
+   - Add your Firebase config to `FireBase.js`:
+     ```javascript
+     // src/FireBase.js
+     import { initializeApp } from "firebase/app";
+     import { getFirestore } from "firebase/firestore";
+     import { getAuth } from "firebase/auth";
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+     const firebaseConfig = {
+       apiKey: "YOUR_API_KEY",
+       authDomain: "YOUR_AUTH_DOMAIN",
+       projectId: "YOUR_PROJECT_ID",
+       storageBucket: "YOUR_STORAGE_BUCKET",
+       messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+       appId: "YOUR_APP_ID"
+     };
 
-### `npm run build`
+     const app = initializeApp(firebaseConfig);
+     const db = getFirestore(app);
+     const auth = getAuth(app);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+     export { db, auth };
+     ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. **Start the application**:
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   The app will be available at `http://localhost:3000`.
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Sign Up**: Create a new account using your email and password.
+- **Sign In**: Log in using your email and password.
+- **Upload Post**: Once logged in, you can upload a new post with an image and a caption.
+- **Like Post**: Click the like button to like a post. Click again to unlike.
+- **Comment on Post**: Add a comment to any post.
+- **Delete Post**: Delete your own post using the delete icon.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Code Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `src/App.js`: Main component that sets up routes and authentication.
+- `src/Post.js`: Component to display individual posts.
+- `src/ImageUpload.js`: Component for uploading images.
+- `src/FireBase.js`: Firebase configuration and initialization.
+- `src/App.css`: Main CSS file for styling.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Dependencies
 
-## Learn More
+- React
+- Firebase
+- Material-UI
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is licensed under the MIT License.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Troubleshooting
 
-### Making a Progressive Web App
+If you encounter any issues:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Check Firebase Configuration**: Ensure your Firebase config in `FireBase.js` is correct.
+- **Check Console Logs**: Look at the browser console for any errors or warnings.
+- **React Toastify Notifications**: Ensure `ToastContainer` is rendered in your root component, and CSS is correctly imported.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Contact
+If you have any questions or need further assistance, feel free to open an issue or contact me directly.
